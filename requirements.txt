@@ -1,0 +1,9 @@
+flask
+transformers
+torch
+spacy
+rdflib
+beautifulsoup4
+requests
+matplotlib
+networkx
