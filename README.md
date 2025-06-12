@@ -1,24 +1,15 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15651442.svg)](https://doi.org/10.5281/zenodo.15651442)
+
 Cognitive AI through Mnemonic Interfaces
+
 Project Overview
+
 This repository contains the conceptual and prototype implementation of a mnemonic interface for AI systems aimed at developing cognitive intelligence. The approach integrates pharmacological ontology, mnemonic structuring, and neuro-symbolic reasoning potential.
-## 📖 How to Cite
 
 If you use this project in your research, please cite it as follows:
 
 > **Babenko, Yevheniia.** (2025). *Mnemonic Interfaces for Cognitive AI: Ontology-Based Knowledge and Neuro-Symbolic Reasoning*. Zenodo. https://doi.org/10.5281/zenodo.15651442
 
-📎 **BibTeX:**
-
-```bibtex
-@misc{babenko2025mnemonic,
-  author       = {Babenko, Yevheniia},
-  title        = {Mnemonic Interfaces for Cognitive AI: Ontology-Based Knowledge and Neuro-Symbolic Reasoning},
-  year         = 2025,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.15651442},
-  url          = {https://doi.org/10.5281/zenodo.15651442}
-}
 Key Components
 
     Pharmacological Ontology: A domain-specific conceptual map created using a combination of NLP and structured data modeling.
