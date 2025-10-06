@@ -1,0 +1,4 @@
+Example of simulated ontology graph:
+DrugA -> Receptor1
+DrugB -> Receptor2
+DrugC -> Receptor1
