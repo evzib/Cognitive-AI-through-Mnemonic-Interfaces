@@ -1,2 +1,141 @@
-<!-- Example ontology file -->
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"></rdf:RDF>
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:ex="http://example.org/pharm#">
+
+  <owl:Ontology rdf:about="http://example.org/pharm">
+    <rdfs:comment xml:lang="en">Expanded pharmacology demo for CILs with richer schema and annotations.</rdfs:comment>
+  </owl:Ontology>
+
+  <!-- Classes -->
+  <owl:Class rdf:about="http://example.org/pharm#Entity"/>
+  <owl:Class rdf:about="http://example.org/pharm#Drug"><rdfs:subClassOf rdf:resource="http://example.org/pharm#Entity"/></owl:Class>
+  <owl:Class rdf:about="http://example.org/pharm#NSAID"><rdfs:subClassOf rdf:resource="http://example.org/pharm#Drug"/></owl:Class>
+  <owl:Class rdf:about="http://example.org/pharm#Receptor"/>
+  <owl:Class rdf:about="http://example.org/pharm#Enzyme"/>
+  <owl:Class rdf:about="http://example.org/pharm#Transporter"/>
+  <owl:Class rdf:about="http://example.org/pharm#Disease"/>
+  <owl:Class rdf:about="http://example.org/pharm#Pathway"/>
+  <owl:Class rdf:about="http://example.org/pharm#SideEffect"/>
+
+  <!-- Object properties -->
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#hasTarget"><owl:inverseOf rdf:resource="http://example.org/pharm#targetedBy"/></owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#targetedBy"/>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#treatsDisease"><owl:inverseOf rdf:resource="http://example.org/pharm#treatedBy"/></owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#treatedBy"/>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#involvedInPathway"/>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#hasSideEffect"><owl:inverseOf rdf:resource="http://example.org/pharm#sideEffectOf"/></owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#sideEffectOf"/>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#interactsWith"><owl:SymmetricProperty/></owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://example.org/pharm#contraindicatedWith"><owl:SymmetricProperty/></owl:ObjectProperty>
+  <owl:SubObjectPropertyOf>
+    <owl:subProperty rdf:resource="http://example.org/pharm#contraindicatedWith"/>
+    <owl:superProperty rdf:resource="http://example.org/pharm#interactsWith"/>
+  </owl:SubObjectPropertyOf>
+
+  <!-- Datatype properties -->
+  <owl:DatatypeProperty rdf:about="http://example.org/pharm#hasDoseMg"/>
+  <owl:DatatypeProperty rdf:about="http://example.org/pharm#hasRoute"/>
+
+  <!-- Instances -->
+  <rdf:Description rdf:about="http://example.org/pharm#Aspirin">
+    <rdf:type rdf:resource="http://example.org/pharm#NSAID"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#COX1"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#COX2"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Inflammation"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Pain"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#GastricBleeding"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">325.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+    <ex:interactsWith rdf:resource="http://example.org/pharm#Warfarin"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Ibuprofen">
+    <rdf:type rdf:resource="http://example.org/pharm#NSAID"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#COX1"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#COX2"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Pain"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#KidneyDamage"/>
+    <ex:contraindicatedWith rdf:resource="http://example.org/pharm#Warfarin"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">200.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Metformin">
+    <rdf:type rdf:resource="http://example.org/pharm#Drug"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#AMPK"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#DiabetesType2"/>
+    <ex:involvedInPathway rdf:resource="http://example.org/pharm#Glycolysis"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#LacticAcidosis"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">500.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Paracetamol">
+    <rdf:type rdf:resource="http://example.org/pharm#Drug"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Fever"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Pain"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#Hepatotoxicity"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">500.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Lisinopril">
+    <rdf:type rdf:resource="http://example.org/pharm#Drug"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Hypertension"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#Cough"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Warfarin">
+    <rdf:type rdf:resource="http://example.org/pharm#Drug"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Thrombosis"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#Bleeding"/>
+    <ex:interactsWith rdf:resource="http://example.org/pharm#Aspirin"/>
+    <ex:contraindicatedWith rdf:resource="http://example.org/pharm#Ibuprofen"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="http://example.org/pharm#Clopidogrel">
+    <rdf:type rdf:resource="http://example.org/pharm#Drug"/>
+    <ex:hasTarget rdf:resource="http://example.org/pharm#P2Y12"/>
+    <ex:treatsDisease rdf:resource="http://example.org/pharm#Atherosclerosis"/>
+    <ex:hasSideEffect rdf:resource="http://example.org/pharm#Bleeding"/>
+    <ex:hasDoseMg rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">75.0</ex:hasDoseMg>
+    <ex:hasRoute rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oral</ex:hasRoute>
+  </rdf:Description>
+
+  <!-- Targets and others -->
+  <rdf:Description rdf:about="http://example.org/pharm#COX1"><rdf:type rdf:resource="http://example.org/pharm#Receptor"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#COX2"><rdf:type rdf:resource="http://example.org/pharm#Receptor"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#AMPK"><rdf:type rdf:resource="http://example.org/pharm#Enzyme"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#P2Y12"><rdf:type rdf:resource="http://example.org/pharm#Receptor"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#ABCB1"><rdf:type rdf:resource="http://example.org/pharm#Transporter"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#CYP3A4"><rdf:type rdf:resource="http://example.org/pharm#Enzyme"/></rdf:Description>
+
+  <!-- Diseases -->
+  <rdf:Description rdf:about="http://example.org/pharm#Inflammation"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Pain"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Fever"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Hypertension"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#DiabetesType2"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Thrombosis"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Atherosclerosis"><rdf:type rdf:resource="http://example.org/pharm#Disease"/></rdf:Description>
+
+  <!-- Pathways -->
+  <rdf:Description rdf:about="http://example.org/pharm#Glycolysis"><rdf:type rdf:resource="http://example.org/pharm#Pathway"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#ArachidonicAcid"><rdf:type rdf:resource="http://example.org/pharm#Pathway"/></rdf:Description>
+
+  <!-- Side effects -->
+  <rdf:Description rdf:about="http://example.org/pharm#GastricBleeding"><rdf:type rdf:resource="http://example.org/pharm#SideEffect"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#KidneyDamage"><rdf:type rdf:resource="http://example.org/pharm#SideEffect"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Bleeding"><rdf:type rdf:resource="http://example.org/pharm#SideEffect"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Hepatotoxicity"><rdf:type rdf:resource="http://example.org/pharm#SideEffect"/></rdf:Description>
+  <rdf:Description rdf:about="http://example.org/pharm#Cough"><rdf:type rdf:resource="http://example.org/pharm#SideEffect"/></rdf:Description>
+
+</rdf:RDF>
