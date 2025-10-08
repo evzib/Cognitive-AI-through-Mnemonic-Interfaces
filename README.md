@@ -21,7 +21,7 @@ Run the demo scripts:
 `python main.py
 python server.py`
 
-API Endpoints
+## API Endpoints
 
 After starting the Flask server (python server.py), the following endpoints are available:
 
@@ -30,12 +30,12 @@ GET /health — server status check
 Example output:
 `{ "status": "running" }`
 
-Notes
+## Notes
 
 Simulation-based evaluation only (no human participants)
 
 Example ontology domain: pharmacology
 
-License
+## License
 
 MIT License (see LICENSE file)
