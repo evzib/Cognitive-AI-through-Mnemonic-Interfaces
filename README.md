@@ -1,5 +1,7 @@
 # Cognitive Interaction Layers — Simulation Prototype
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15651442.svg)](https://doi.org/10.5281/zenodo.15651442)
+
 ## Overview
 This repository provides a proof-of-concept prototype for **cognitive interaction layers** (CILs).  
 CILs act as human-centered interfaces that align structured knowledge (ontologies) with cognitively motivated encodings such as semantic cues, clusters, and visual metaphors.  
@@ -33,8 +35,6 @@ Notes
 Simulation-based evaluation only (no human participants)
 
 Example ontology domain: pharmacology
-
-Related preprint available on Zenodo: DOI: 10.5281/zenodo.15651442
 
 License
 
