@@ -24,8 +24,10 @@ API Endpoints
 After starting the Flask server (python server.py), the following endpoints are available:
 
 GET /health — server status check
+
 Example output:
 `{ "status": "running" }`
+
 Notes
 
 Simulation-based evaluation only (no human participants)
@@ -33,6 +35,7 @@ Simulation-based evaluation only (no human participants)
 Example ontology domain: pharmacology
 
 Related preprint available on Zenodo: DOI: 10.5281/zenodo.15651442
+
 License
 
 MIT License (see LICENSE file)
