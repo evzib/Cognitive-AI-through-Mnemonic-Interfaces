@@ -25,7 +25,7 @@ After starting the Flask server (python server.py), the following endpoints are 
 
 GET /health — server status check
 Example output:
-{ "status": "running" }
+`{ "status": "running" }`
 Notes
 
 Simulation-based evaluation only (no human participants)
