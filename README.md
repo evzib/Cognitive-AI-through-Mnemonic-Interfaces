@@ -23,39 +23,16 @@ API Endpoints
 
 After starting the Flask server (python server.py), the following endpoints are available:
 
-    GET /health — server status check
-    Example output:
-
-`{"status": "ok", "message": "Cognitive AI server is running"}
-
-GET /stats — ontology summary (triples, unique subjects)
-
-POST /query — custom SPARQL query
-Example:
-
-curl -X POST http://127.0.0.1:5000/query \
-     -H "Content-Type: application/json" \
-     -d '{"query": "SELECT ?drug ?effect WHERE { ?drug <http://example.org/pharm#hasSideEffect> ?effect }"}'
-
-GET /example_query — built-in query returning all drugs and their side effects
+GET /health — server status check
 Example output:
-
-    {
-      "results": [
-        {"drug": "http://example.org/pharm#Aspirin", "effect": "http://example.org/pharm#Bleeding"},
-        {"drug": "http://example.org/pharm#Paracetamol", "effect": "http://example.org/pharm#Hepatotoxicity"}
-      ]
-    }`
-
+{ "status": "running" }
 Notes
 
-    This prototype uses simulation-based evaluation only (no human participants).
+Simulation-based evaluation only (no human participants)
 
-    Example ontology domain: pharmacology.
+Example ontology domain: pharmacology
 
-    Related preprint available on Zenodo: 10.5281/zenodo.15651442
+Related preprint available on Zenodo: DOI: 10.5281/zenodo.15651442
+License
 
-.
-
-License: MIT (see LICENSE).
-
+MIT License (see LICENSE file)
