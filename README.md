@@ -16,8 +16,8 @@ pip install -r requirements.txt`
 
 Run the demo scripts:
 
-python main.py
-python server.py
+`python main.py
+python server.py`
 
 API Endpoints
 
