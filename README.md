@@ -23,10 +23,10 @@ API Endpoints
 
 After starting the Flask server (python server.py), the following endpoints are available:
 
-    'GET /health — server status check
+    GET /health — server status check
     Example output:
 
-{"status": "ok", "message": "Cognitive AI server is running"}
+`{"status": "ok", "message": "Cognitive AI server is running"}
 
 GET /stats — ontology summary (triples, unique subjects)
 
@@ -45,8 +45,8 @@ Example output:
         {"drug": "http://example.org/pharm#Aspirin", "effect": "http://example.org/pharm#Bleeding"},
         {"drug": "http://example.org/pharm#Paracetamol", "effect": "http://example.org/pharm#Hepatotoxicity"}
       ]
-    }
-`
+    }`
+
 Notes
 
     This prototype uses simulation-based evaluation only (no human participants).
