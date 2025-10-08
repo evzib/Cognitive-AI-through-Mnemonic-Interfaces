@@ -9,10 +9,10 @@ The prototype demonstrates how structured knowledge can be mapped into cognitive
 
 Clone the repository and install dependencies:
 
-```bash
+`bash
 git clone https://github.com/<your-username>/Cognitive-AI-through-Mnemonic-Interfaces.git
 cd Cognitive-AI-through-Mnemonic-Interfaces
-pip install -r requirements.txt
+pip install -r requirements.txt`
 
 Run the demo scripts:
 
